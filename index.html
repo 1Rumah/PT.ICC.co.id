@@ -421,84 +421,98 @@
         <!-- end contact-section -->
 
 
-        <!-- news-section -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col col-lg-3 col-md-4">
-                        <div class="section-title">
-                            <h2>Recent news</h2>
-                        </div>
-                    </div>
-                    <div class="col col-lg-6 col-md-5">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    </div>
-                    <div class="col col-lg-3 col-md-3">
-                       <div class="all-news-link">
-                            <a href="#" class="theme-btn">More News</a>
-                       </div>
-                    </div>
-                </div> <!-- end row -->
+       <!-- news-section -->
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-3 col-md-4">
+        <div class="section-title">
+          <h2>Berita & Informasi Terkini</h2>
+        </div>
+      </div>
+      <div class="col col-lg-6 col-md-5">
+        <p>Berikut adalah kabar terbaru yang kami himpun langsung dari kanal berita resmi.</p>
+      </div>
+      <div class="col col-lg-3 col-md-3">
+        <div class="all-news-link">
+          <a href="#" class="theme-btn">More News</a>
+        </div>
+      </div>
+    </div>
 
-                <div class="row">
-                    <div class="col col-xs-12">
-                        <div class="news-grids">
-                            <div class="grid">
-                                <div class="entry-media">
-                                    <img src="assets/images/blog/img-1.jpg" alt>
-                                </div>
-                                <div class="entry-details">
-                                    <div class="entry-meta">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>Nov 25</li>
-                                            <li><i class="fa fa-comments"></i><a href="#">2 Comments</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="entry-body">
-                                        <h3><a href="#">China's industrial profits grow faster in first eight months</a></h3>
-                                        <p>Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="entry-media">
-                                    <img src="assets/images/blog/img-2.jpg" alt>
-                                </div>
-                                <div class="entry-details">
-                                    <div class="entry-meta">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>Nov 25</li>
-                                            <li><i class="fa fa-comments"></i><a href="#">2 Comments</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="entry-body">
-                                        <h3><a href="#">Exploring the wild side in an industrial jungle</a></h3>
-                                        <p>Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="entry-media">
-                                    <img src="assets/images/blog/img-3.jpg" alt>
-                                </div>
-                                <div class="entry-details">
-                                    <div class="entry-meta">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>Nov 25</li>
-                                            <li><i class="fa fa-comments"></i><a href="#">2 Comments</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="entry-body">
-                                        <h3><a href="#">Bus drivers in Liverpool vote for industrial action</a></h3>
-                                        <p>Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- end container -->        
-        </section>
+    <div class="row">
+      <div class="col col-xs-12">
+        <div class="news-grids" id="news-container">
+          <!-- Konten berita akan dimasukkan di sini via JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Contoh data hasil dari Bot Telegram dan YouTube (simulasi)
+const beritaTelegram = [
+  {
+    judul: "UMKM Lokal Raup Miliaran dari Ekspor!",
+    deskripsi: "Hamparan pohon singkong menjadi penopang hidup petani Desa Warga Makmur Jaya, Kecamatan Banjar Agung, Tulang Bawang, Lampung. Meskipun harganya naik-turun, namun singkong tetap menjadi andalan.",
+    tanggal: "21 Jan 2025",
+   
+    youtubeId: "1ENKgiCLZhI"
+  },
+  {
+    judul: "UMKM Lokal Raup Miliaran dari Ekspor!",
+    deskripsi: "Hamparan pohon singkong menjadi penopang hidup petani Desa Warga Makmur Jaya, Kecamatan Banjar Agung, Tulang Bawang, Lampung. Meskipun harganya naik-turun, namun singkong tetap menjadi andalan.",
+    tanggal: "21 Jan 2025",
+   
+    youtubeId: "1ENKgiCLZhI"
+  },
+  {
+     judul: "UMKM Lokal Raup Miliaran dari Ekspor!",
+    deskripsi: "Hamparan pohon singkong menjadi penopang hidup petani Desa Warga Makmur Jaya, Kecamatan Banjar Agung, Tulang Bawang, Lampung. Meskipun harganya naik-turun, namun singkong tetap menjadi andalan.",
+    tanggal: "21 Jan 2025",
+   
+    youtubeId: "1ENKgiCLZhI"
+  }
+];
+
+// Fungsi untuk membuat grid berita
+function renderBerita(berita) {
+  const container = document.getElementById('news-container');
+  berita.forEach(item => {
+    const grid = document.createElement('div');
+    grid.classList.add('grid');
+
+    const youtubeThumbnail = `https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg`;
+
+    grid.innerHTML = `
+     <div class="entry-media">
+  <iframe width="100%" height="200" src="https://www.youtube.com/embed/${item.youtubeId}" frameborder="0" allowfullscreen></iframe>
+</div>
+
+      <div class="entry-details">
+        <div class="entry-meta">
+          <ul>
+            <li><i class="fa fa-clock-o"></i>${item.tanggal}</li>
+
+          </ul>
+        </div>
+        <div class="entry-body">
+          <h3><a href="https://www.youtube.com/watch?v=${item.youtubeId}" target="_blank">${item.judul}</a></h3>
+          <p>${item.deskripsi}</p>
+        </div>
+      </div>
+    `;
+    container.appendChild(grid);
+  });
+}
+
+// Jalankan saat halaman siap
+document.addEventListener("DOMContentLoaded", () => {
+  renderBerita(beritaTelegram);
+});
+</script>
+
         <!-- end news-section -->
 
 
